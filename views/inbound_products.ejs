@@ -1,0 +1,36 @@
+<div class="row form-group">
+    <div class="col-md-3">
+        <label>SKU</label>
+    </div>
+    <div class="col-md-3">
+        <label>Quantity</label>
+    </div>
+    <div class="col-md-3">
+        <label>Suggested Space</label>
+    </div>
+    <div class="col-md-3"></div>
+</div>
+<% if(results.length > 0){ 
+    results.forEach((result, index) => {
+%>
+<div class="row form-group">
+    <div class="col-md-3">
+        <input type="text" class="form-control" name="add_sku" value="<%= result.sku %>" readonly>
+    </div>
+    <div class="col-md-3">
+        <input type="text" class="form-control" name="quantity" value="<%= result.stock %>" readonly>
+    </div>
+    <div class="col-md-3">
+        <% if(result.is_rack == '1'){ %>
+            <input type="text" class="form-control" name="space" value="<%=result.suggested_rack %>" readonly>
+        <% }else{ %>
+            <input type="text" class="form-control" name="space" value="<%=((result.name)? result.name:'')%>" readonly>
+        <% } %>    
+    </div>
+    <div class="col-md-3">
+        <% if(result.is_rack == '1'){ %>
+            <a class="btn btn btn-primary" onclick="storage_rack('<%= result.id %>');">Done</a>
+        <% } %>    
+    </div>
+</div>
+<% }) } %>

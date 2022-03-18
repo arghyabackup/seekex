@@ -1,0 +1,31 @@
+<%- include('includes/header.html'); -%>
+<div class="container mt-2">
+    <div class="row">
+       <div class="col-md-12 mt-1 text-center">
+          <h2 class="text-white bg-dark p-3">Rack Order</h2>
+       </div>
+       <%- include('includes/menu.html'); -%>
+       <div class="col-md-12 mb-4">
+            <form id="postForm" class="form-horizontal" action="/rack/post-order" method="POST">
+                <div class="row form-group">
+                    <% if(result.length > 0){ 
+                        result.forEach((rack, index) => {
+                    %>
+                    <input type="hidden" name="rack_id[]" value="<%= rack.id %>">
+                    <input type="hidden" name="sq_order[]" value="<%= orders.indexOf(rack.capacity)+1 %>">
+                    <div class="col-md-4 offset-md-4 mb-3">
+                        <label>Rack Name : <%= rack.name %></label>
+                        <input type="number" class="form-control" name="order_no[]" value="<%= rack.order_no %>" required>
+                    </div>
+                    <% }) } %>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary" id="btn-save">Submit</button>
+                </div>
+           </form>
+       </div>
+       <div class="col-md-12 mt-2 mb-3 add_sku_data">
+       </div>
+    </div>
+ </div>
+<%- include('includes/footer.html'); -%>

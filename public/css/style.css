@@ -1,0 +1,135 @@
+html {
+    width: 100%;
+    height: 100%;
+}
+body {
+    margin: 0;
+    padding: 0;
+    background: #fff;
+    color: #000;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    line-height: 28px;
+    height: 100%;
+    overflow-x: hidden;
+}
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    color: #000000;
+}
+h1 {
+    font-size: 51px;
+    line-height: 60px;
+    font-weight: 900;
+}
+h2 {
+    font-size: 45px;
+    line-height: 55px;
+}
+h3 {
+    font-size: 38px;
+    line-height: 48px;
+}
+h4 {
+    font-size: 28px;
+    line-height: 38px;
+    font-weight: 700;
+}
+h5 {
+    font-size: 22px;
+    line-height: 30px;
+    font-weight: 900;
+}
+h6 {
+    font-size: 17px;
+    line-height: 24px;
+}
+p {
+    font-size: 17px;
+    line-height: 24px;
+    color: #000;
+}
+img {
+    max-width: 100%;
+}
+a {
+    text-decoration: none;
+    color: #000;
+    word-wrap: break-word;
+    -webkit-transition: ease-out 0.3s;
+    -moz-transition: ease-out 0.3s;
+    -o-transition: ease-out 0.3s;
+    transition: ease-out 0.3s;
+}
+a:hover {
+    text-decoration: none;
+    color: #0d50a2;
+    outline: 0;
+    -webkit-transition: ease-in 0.3s;
+    -moz-transition: ease-in 0.3s;
+    -o-transition: ease-in 0.3s;
+    transition: ease-in 0.3s;
+}
+ul {
+    margin: 0;
+    padding: 0;
+}
+ul li {
+    list-style-type: none;
+}
+.padd-0 {
+    padding: 0;
+}
+.btn {
+    font-family: 'Karla', sans-serif;
+    border: 0;
+    font-size: 16px;
+    line-height: 18px;
+    color: #fff;
+    font-weight: 500;
+    text-transform: uppercase;
+    border-radius: 40px;
+    padding: 15px 38px;
+    text-align: center;
+    box-shadow: 0px 3px 9px 1px rgb(0 0 0 / 27%);
+    position: relative;
+    transition-duration: .5s;
+}
+.btn:hover, .btn:focus {
+    color: #fff;
+    background-color: #333;
+    transition-duration: .5s;
+    box-shadow: none;
+}
+input, button {
+    outline: none;
+    box-shadow: none;
+}
+input:focus, button:focus, input:hover, button:hover {
+    outline: none;
+    box-shadow: none;
+}
+.form-control:focus {
+    outline: none;
+    box-shadow: none;
+}
+label.error{ color: red }
+.menu{
+    display: table;
+    margin: 20px auto;
+}
+.menu ul{ 
+    display: block;
+    text-align: center;
+}
+.menu ul li{
+    display: inline-block;
+    margin: 0 10px;
+}
+.menu ul li a{
+    font-size: 18px;
+    font-weight: 600;
+}
+.menu ul li a.active{
+    color: #0d50a2;
+}

@@ -1,0 +1,67 @@
+<%- include('includes/header.html'); -%>
+<div class="container mt-2">
+    <div class="row">
+       <div class="col-md-12 mt-1 text-center">
+          <h2 class="text-white bg-dark p-3">Suggested Space</h2>
+       </div>
+       <%- include('includes/menu.html'); -%>
+       <div class="col-md-12 mb-4 mt-4">
+            <form id="postForm" class="form-horizontal" method="POST">
+                <div class="row form-group">
+                    <div class="col-md-2 text-center mt-3"><label>Challan No. :</label></div>
+                    <div class="col-md-4 mt-2">
+                        <input type="text" class="form-control" name="challan_no" placeholder="Enter Challan No." value="">
+                    </div>
+                    <div class="col-md-4">
+                        <button type="submit" class="btn btn-primary" id="btn-save">Submit</button>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+           </form>
+       </div>
+       <div class="col-md-12 mt-2 mb-3 add_sku_data">
+       </div>
+    </div>
+ </div>
+<%- include('includes/footer.html'); -%>
+
+<script>
+$(document).ready(function(){
+    $("#postForm").validate({
+        rules: {
+            challan_no: {
+                required: true,
+            }
+        },
+        messages: {
+        },
+        submitHandler: function(form) {
+            var formdata = jQuery('#postForm').serialize();
+            $.ajax({
+                type: "POST",
+                url: "get-suggest-space",
+                data: formdata,
+                dataType: 'json',
+                success: function(resp) {
+                    if (resp.status === 'success') {
+                        notie.alert({
+                            type: 'success',
+                            text: '<i class="fa fa-check"></i> ' + resp.message,
+                            time: 5,
+                            position: 'top'
+                        });
+                    } else {
+                        notie.alert({
+                            type: 'error',
+                            text: '<i class="fa fa-time"></i> ' + resp.message,
+                            time: 5,
+                            position: 'top'
+                        });
+                    }
+                    jQuery('.add_sku_data').html(resp.html);
+                }
+            });
+        }
+    });
+});
+</script>

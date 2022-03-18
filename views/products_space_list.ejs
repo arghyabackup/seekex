@@ -1,0 +1,32 @@
+<table class="table table-striped table-bordered" style="width:100%">
+    <thead>
+       <tr>
+          <th scope="col" width="5%">#</th>
+          <th scope="col" width="13%">Name</th>
+          <th scope="col" width="13%">SKU</th>
+          <th scope="col" width="13%">Size</th>
+          <th scope="col" width="20%">Stock</th>
+          <th scope="col" width="13%">Allocated Rack</th>
+          <th scope="col" width="13%">Rack Size</th>
+       </tr>
+    </thead>
+    <tbody class="list_data">
+       <% if(results.length > 0){ 
+            results.forEach((result, index) => {
+       %>
+       <tr data-id="<%= result.id %>">
+         <td><%= index+1 %></td>
+         <td><%= result.product_name %></td>
+         <td><%= result.sku %></td>
+         <td><%= result.size %> cubic feet</td>
+         <td><%= result.stock %></td>
+         <td><%=((result.name)? result.name:'')%></td>
+         <td><%=((result.capacity)? result.capacity+' cubic feet':'')%></td>
+       </tr>
+       <% }) }else{ %>
+       <tr class="no_data">
+          <td colspan="7" rowspan="1" headers="">No Data Found</td>
+       </tr>
+       <% } %>
+    </tbody>
+ </table>
